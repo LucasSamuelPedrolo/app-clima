@@ -1,0 +1,90 @@
+* {
+    font-family: 'Nunito Sans', sans-serif;
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+}
+
+:root {
+    --backGround-header: rgba(31, 57, 206, 0.918);
+    --backGround-main-section: rgba(99, 120, 241, 0.842);
+}
+
+.header-content {
+    display: flex;
+    width: 100%;
+    background-color: var(--backGround-header);
+    padding: 1.1rem;
+    justify-content: center;
+    border-bottom: solid 0.1rem white;
+    gap: 1.4rem;
+    text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.644);
+}
+
+.main-title {
+    color: rgb(233, 235, 236);
+    font-size: 2.4rem;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.material-symbols-outlined {
+    font-size: 2.6rem;
+}
+
+.main-section {
+    width: 100%;
+    height: calc(100vh - 10.1rem);
+    display: flex;
+    align-items: center;
+    background-color: rgba(99, 120, 241, 0.842);
+}
+
+.main-section-form {
+    display: flex;
+    align-items: center;
+}
+
+.main-section-form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-section-label {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: white;
+    text-shadow: 4px 4px 10px darkblue;
+    text-transform: uppercase;
+    position: relative;
+    
+}
+
+.state-city{
+    width: 50%;
+    display: grid;
+    grid-row: 1fr 1fr;
+    gap: 0.5rem;
+    justify-content: center;
+}
+
+.btn-choose{
+    font-size: 1.6rem;
+    max-width: max-content;
+    padding: 0.2rem;
+    grid-row-start: 2;
+}
+
+.btn-send-options{
+    max-width: min-content;
+    padding: 0.5rem 2rem;
+    grid-row-start: 2;
+    grid-column-start: 2;
+}
+
+.hidden {
+    display: none;
+}

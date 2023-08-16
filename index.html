@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,900;0,1000;1,300&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Veja o clima de sua cidade!</title>
+</head>
+
+<body>
+
+    <header class="header-content">
+        <span class="material-symbols-outlined" style="color: yellow;">sunny</span>
+        <h1 class="main-title">O clima para os proximos dias!</h1>
+        <span class="material-symbols-outlined" style="color: rgb(0, 0, 255);">thunderstorm</span>
+    </header>
+
+    <main>
+        <section class="main-section">
+            <form class="main-section-form">
+                <div class="state-city">
+                    <label for="choose-state" class="main-section-label">Escolha seu estado</label>
+                    <input type="text" id="choose-state" name="choose-state" class="btn-choose" required placeholder="Digite seu estado aqui">
+                    <button type="button" class="btn-send-options">Enviar</button>
+                </div>
+
+                <label for="choose-city" class="main-section-label hidden">Agora escolha sua cidade ou a mais
+                    proxima</label>
+                <input type="radio" id="choose-city" name="choose-city hidden" class="btn-choose hidden">
+
+                <button type="submit" class="CTA hidden">Confirmar</button>
+            </form>
+        </section>
+    </main>
+
+    <footer class="footer-content">
+        <p class="linkedin">Acesse : <a href="#">linkedin</a></p>
+        <p class="gitHub">O projeto pode ser visto no <a href="#">GitHub</a></p>
+        <p> Feito com muito trabalho por : <a href="#">Lucas Samuel Pedrolo</a> </p>
+    </footer>
+
+</body>
+
+</html>
