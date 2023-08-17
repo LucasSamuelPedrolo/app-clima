@@ -34,23 +34,18 @@
 
 .main-section {
     width: 100%;
-    height: calc(100vh - 10.1rem);
+    height: calc(100vh - 10.1rem - 2rem);
     display: flex;
     align-items: center;
     background-color: rgba(99, 120, 241, 0.842);
 }
 
 .main-section-form {
-    display: flex;
-    align-items: center;
-}
-
-.main-section-form{
-    width: 100%;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    gap: 1rem;
 }
 
 .main-section-label {
@@ -60,31 +55,98 @@
     text-shadow: 4px 4px 10px darkblue;
     text-transform: uppercase;
     position: relative;
-    
 }
 
-.state-city{
-    width: 50%;
+.state-city {
     display: grid;
-    grid-row: 1fr 1fr;
+    grid-row: auto auto;
     gap: 0.5rem;
     justify-content: center;
 }
 
-.btn-choose{
+.btn-choose {
     font-size: 1.6rem;
     max-width: max-content;
     padding: 0.2rem;
     grid-row-start: 2;
+    border-radius: 3px;
+    outline: 1px solid rgb(168, 161, 161);
+    border: none;
 }
 
-.btn-send-options{
+.main-section-form-state-label{
+    display: inline-block;
+    padding: 0.4rem 1rem;
+    text-transform: capitalize;
+}
+
+.main-section-form-state-label input{
+    margin-left: 0.5rem;
+}
+
+.btn-choose::placeholder {
+    color: rgba(0, 0, 0, 0.219);
+}
+
+.btn-send-options {
     max-width: min-content;
     padding: 0.5rem 2rem;
     grid-row-start: 2;
     grid-column-start: 2;
+    background-color: rgba(5, 233, 5, 0.767);
+    font-weight: bold;
+    border-radius: 3px;
 }
 
-.hidden {
+.main-section-label {
+    padding: 1.3rem 0;
+}
+
+.section-form-radio {
+    display: flex;
+    margin: 0 auto;
+    background-color: rgba(138, 135, 135, 0.651);
+    color: aliceblue;
+    width: max-content;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 0.5rem;
+}
+
+.CTA{
+    padding: 1rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.hidden{
     display: none;
+}
+
+.footer-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    background-color: rgb(53, 52, 52);
+    border-top: 1px solid white;
+    color: white;
+}
+
+.linkedin a{
+    color: rgb(116, 116, 250);
+}
+
+.gitHub a{
+    color: rgb(212, 60, 60);
+}
+
+.span-name-creator{
+    color: chartreuse;
+}
+
+a, a::selection{
+    color: white;
+    text-decoration: none;
 }
