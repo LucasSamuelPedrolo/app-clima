@@ -34,10 +34,10 @@
 
 .main-section {
     width: 100%;
-    height: calc(100vh - 10.1rem - 2rem);
+    height: calc(100vh - 12.56rem);
     display: flex;
     align-items: center;
-    background-color: rgba(99, 120, 241, 0.842);
+    background-color: var(--backGround-main-section);
 }
 
 .main-section-form {
@@ -132,6 +132,8 @@
     background-color: rgb(53, 52, 52);
     border-top: 1px solid white;
     color: white;
+    padding: 0.4rem;
+
 }
 
 .linkedin a{
@@ -142,11 +144,15 @@
     color: rgb(212, 60, 60);
 }
 
-.span-name-creator{
+.name-dev a{
     color: chartreuse;
 }
 
 a, a::selection{
     color: white;
     text-decoration: none;
+}
+
+.footer-content a:hover{
+    text-decoration: underline;
 }
