@@ -25,32 +25,12 @@
 
     <main>
         <section class="main-section">
-            <form class="main-section-form">
-                <div class="state-city">
-                    <label for="choose-state" class="main-section-label">Escolha seu estado</label>
-                    <input type="text" id="choose-state" name="choose-state" class="btn-choose" required
-                    autocomplete="off"
-                        placeholder="Digite seu estado aqui">
-                    <button type="button" class="btn-send-options" disabled>Enviar</button>
-                </div>
+            <div class="main-section-case-options">
+                <label for="city" class="case-options-label-city">Digite sua cidade :</label>
+                <input type="text" id="city" class="case-options-input-city" placeholder="Ex: PR ou parana" required autocomplete="off">
 
-                <p class="main-section-label hidden">Agora escolha sua cidade ou a mais
-                    proxima</p>
-
-                <div class="section-form-radio">
-
-                <!-- como deve ser feito no js
-                        <label for="choose-city1" class="main-section-form-state-label">cidade1
-                        <input type="radio" id="choose-city1" name="choose-city hidden" class="hidden"
-                            value="teste">
-                    </label>
-                -->
-
-
-                </div>
-
-                <button type="submit" class="CTA hidden">Confirmar</button>
-            </form>
+                <button class="btn-send">Enviar</button>
+            </div>
         </section>
     </main>
 

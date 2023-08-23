@@ -11,29 +11,5 @@
     // }
     // checkToken(TOKEN);
 
-    const stateUser = document.querySelector('#choose-state');
-
-    const form = document.querySelector('.main-section-form');
-
-    const btnOptions = document.querySelector('.btn-send-options');
-
-    const inputChoose = document.querySelector('#choose-state');
-
-    form.addEventListener('submit', (e) => {
-        e.preventDefault();
-    })
-
-    stateUser.addEventListener('keydown', (e) => {
-
-        if () {
-            console.log(stateUser.value.length);
-            stateUser.style.outlineColor = 'green';
-            btnOptions.disabled = false;
-        } else {
-            stateUser.style.outlineColor = 'red';
-            btnOptions.disabled = true;
-        }
-    })
-
-
+    
 })();
