@@ -2,21 +2,19 @@
     const cityUser = document.querySelector('#city');
     const btnSend = document.querySelector('.btn-send');
 
-    function unlockBtnSend() {
-        if (cityUser.value !== '' && cityUser.value !== null && cityUser.value.lenght !== 1 || 0) {
-            console.log('teste')
+
+    //unlock send button
+    cityUser.addEventListener('input', (e) => {
+        let ts = cityUser.value;
+        console.log(ts.lenght)
+        if (e !== null && e !== ' ' && cityUser.value.lenght > 2) {
+            
+            btnSend.removeAttribute('disabled');
+            btnSend.classList.remove('disabled');
+        } else {
+            btnSend.setAttribute('disabled', 'disabled');
         }
-    }
-
-    //marcar ideia :::: testar utilizar 'document.onclick' e 'focus' para verificar input vazio
-
-    cityUser.addEventListener('keydown', (e) => {
-        let inputValue = cityUser.innerText;
-        console.log(inputValue.lenght)
     })
-    unlockBtnSend();
-
-
 
     const TOKEN = new Request("http://apiadvisor.climatempo.com.br/api/v1/anl/synoptic/locale/BR?token=383e3b0dfd73c9eab3e5b2fa9bd85150");
 
