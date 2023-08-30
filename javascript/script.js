@@ -2,31 +2,46 @@
     const cityUser = document.querySelector('#city');
     const btnSend = document.querySelector('.btn-send');
 
+    //prevent number
+    cityUser.addEventListener('keydown', (e) => {
+        console.log(!(e.keyCode >= 65 && e.keyCode <= 90))
+        if (!(e.keyCode >= 65 && e.keyCode <= 90) && e.keyCode !== 8 && e.keyCode !== 13) {
+            e.preventDefault();
+        }
+    }
+    )
 
     //unlock send button
     cityUser.addEventListener('input', (e) => {
-        let ts = cityUser.value;
-        console.log(ts.lenght)
-        if (e !== null && e !== ' ' && cityUser.value.lenght > 2) {
-            
-            btnSend.removeAttribute('disabled');
+        let elem = cityUser.value;
+        if (e !== null && e !== ' ' && elem.length === 2) {
+            btnSend.disabled = false;
             btnSend.classList.remove('disabled');
+            return;
         } else {
-            btnSend.setAttribute('disabled', 'disabled');
+            btnSend.classList.add('disabled');
+            btnSend.disabled = true;
         }
     })
 
-    const TOKEN = new Request("http://apiadvisor.climatempo.com.br/api/v1/anl/synoptic/locale/BR?token=383e3b0dfd73c9eab3e5b2fa9bd85150");
 
-    // const checkToken = (TOKEN) => {
-    //     fetch(TOKEN).then((response) => {
-    //         if (response.status === 400) {
-    //             alert('ocorreu um erro no servidor, tente novamente mais tarde');
-    //         }
-    //     }
-    //     )
-    // }
-    // checkToken(TOKEN);
+    function searchState(stateUser) {
+        const TOKEN = '383e3b0dfd73c9eab3e5b2fa9bd85150';
+
+        const URL = `http://apiadvisor.climatempo.com.br/api/v1/locale/city?state=${stateUser}&token=${TOKEN}`;
+
+        const URLCONFIG = {
+            method: 'GET',
+            cache: 'default'
+        };
+
+        fetch(URL).then(function (RESPONSE) {
+            console.log(RESPONSE.json())
+        })
+    };
+
+    searchState('PR')
+
 
 
 })();
