@@ -25,11 +25,24 @@
 
     <main>
         <section class="main-section">
-            <div class="main-section-case-options">
-                <label for="city" class="case-options-label-city">Digite sua cidade :</label>
-                <input type="text" id="city" class="case-options-input-city" placeholder="Ex: PR" autocomplete="off">
+            <div class="main-section-case-options" id="main-state">
+                <label for="state" class="case-options-label">Digite seu estado :</label>
+                <input type="search" id="state" class="case-options-input" placeholder="Ex: PR" autocomplete="off">
 
-                <button class="btn-send disabled" disabled>Enviar</button>
+                <button type="button" class="btn-send disabled" disabled>Enviar</button>
+            </div>
+
+            <div class="main-section-case-options">
+                <label class="case-options-label" for="search-city">Agora sua cidade</label>
+
+                <input type="text" list="all-city" id="search-city" class="case-options-input"
+                    placeholder="Ex: Curitiba">
+                <datalist id="all-city">
+
+                </datalist>
+
+                <button type="button" class="btn-send disabled-city" disabled>Confirmar pesquisa</button>
+
             </div>
         </section>
     </main>
