@@ -28,10 +28,13 @@
             btnSend.disabled = true;
         }
     })
+    let teste;
 
     //send state
     btnSend.addEventListener('click', (e) => {
-        searchState(userState.value.toUpperCase());
+        teste = searchState(userState.value.toUpperCase());
+        const teste2 = teste.then(con => { getInvalidStates(con) });
+
     })
 
     userCity.addEventListener('input', (e) => {
@@ -44,19 +47,20 @@
         }
     })
 
+    btnSendCity.addEventListener('click', () => {
+        const teste3 = teste.then(con2 => { getInvalidCities(con2) });
+    })
+
     //conects with API 'clima tempo'
-    function searchState(stateUser) {
+    async function searchState(stateUser) {
         const TOKEN = '383e3b0dfd73c9eab3e5b2fa9bd85150';
         const URL = `http://apiadvisor.climatempo.com.br/api/v1/locale/city?state=${stateUser}&token=${TOKEN}`;
 
+        const methods = { method: 'GET' };
 
-        fetch(URL).then((respose) => {
-            return respose.json()
-        }).then((resposeConverted) => {
-            if(getInvalidStates(resposeConverted)){
-                
-                }  
-        })
+        const request = await fetch(URL, methods);
+
+        return request.json();
     };
 
 
@@ -73,10 +77,12 @@
     }
 
     function getInvalidCities(dataCity) {
-        console.log('dentro da funcao')
-        const dataFilter = dataCity.filter((elem) => {
-            return userCity.value === elem.nome ? true : false;
+        console.log('dentro da funcao', dataCity)
+        const dataFilter = dataCity.map((elem) => {
+            return userCity.value === elem.name ? elem.id + elem.name : ''
         })
+
+        console.log(dataFilter)
     }
 
     //const URLCONFIRM = 'http://apiadvisor.climatempo.com.br/api-manager/user-token/:your-app-token/locales';
