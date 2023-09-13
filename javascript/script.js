@@ -28,13 +28,15 @@
             btnSend.disabled = true;
         }
     })
-    let teste;
+    let APIresponse;
 
     //send state
     btnSend.addEventListener('click', (e) => {
-        teste = searchState(userState.value.toUpperCase());
-        const teste2 = teste.then(con => { getInvalidStates(con) });
-
+        const awaitApi =  document.querySelector(".loading");
+        awaitApi.style.display = 'flex';
+        APIresponse = searchState(userState.value.toUpperCase()).catch(err =>{alert('Ops ocorreu um erro porfavor recarregue a página')});
+        const APIValidatorState = APIresponse.then(con => { getInvalidStates(con) });
+        awaitApi.style.display = 'none';
     })
 
     userCity.addEventListener('input', (e) => {
@@ -48,7 +50,7 @@
     })
 
     btnSendCity.addEventListener('click', () => {
-        const teste3 = teste.then(con2 => { getInvalidCities(con2) });
+        const APIValidatorCity = APIresponse.then(con2 => { getInvalidCities(con2) });
     })
 
     //conects with API 'clima tempo'
@@ -77,12 +79,9 @@
     }
 
     function getInvalidCities(dataCity) {
-        console.log('dentro da funcao', dataCity)
         const dataFilter = dataCity.map((elem) => {
             return userCity.value === elem.name ? elem.id + elem.name : ''
         })
-
-        console.log(dataFilter)
     }
 
     //const URLCONFIRM = 'http://apiadvisor.climatempo.com.br/api-manager/user-token/:your-app-token/locales';
