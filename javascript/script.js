@@ -5,6 +5,7 @@
     const divCity = document.querySelector('#main-city');
     const userCity = document.querySelector('#search-city');
     const btnSendCity = document.querySelector('#btn-send-city');
+    const awaitApi =  document.querySelector(".loading");
 
     const elemOption = () => document.createElement('option');
 
@@ -16,7 +17,7 @@
     }
     )
 
-    //unlock send button
+    //unlock send button state
     userState.addEventListener('input', (e) => {
         let elem = userState.value;
         if (e !== null && e !== ' ' && elem.length === 2) {
@@ -32,13 +33,13 @@
 
     //send state
     btnSend.addEventListener('click', (e) => {
-        const awaitApi =  document.querySelector(".loading");
         awaitApi.style.display = 'flex';
         APIresponse = searchState(userState.value.toUpperCase()).catch(err =>{alert('Ops ocorreu um erro porfavor recarregue a página')});
         const APIValidatorState = APIresponse.then(con => { getInvalidStates(con) });
         awaitApi.style.display = 'none';
     })
 
+    //unlock send button city
     userCity.addEventListener('input', (e) => {
         if (e !== null && e !== ' ') {
             btnSendCity.disabled = false;
@@ -49,8 +50,11 @@
         }
     })
 
+    //send city
     btnSendCity.addEventListener('click', () => {
+        awaitApi.style.display = 'flex';
         const APIValidatorCity = APIresponse.then(con2 => { getInvalidCities(con2) });
+        awaitApi.style.display = 'none';
     })
 
     //conects with API 'clima tempo'
@@ -79,9 +83,10 @@
     }
 
     function getInvalidCities(dataCity) {
-        const dataFilter = dataCity.map((elem) => {
-            return userCity.value === elem.name ? elem.id + elem.name : ''
+        const dataFilter = dataCity.find((elem) => {
+            return userCity.value === elem.name;
         })
+        console.log(dataFilter)
     }
 
     //const URLCONFIRM = 'http://apiadvisor.climatempo.com.br/api-manager/user-token/:your-app-token/locales';
