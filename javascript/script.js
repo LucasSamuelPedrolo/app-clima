@@ -5,7 +5,7 @@
     const divCity = document.querySelector('#main-city');
     const userCity = document.querySelector('#search-city');
     const btnSendCity = document.querySelector('#btn-send-city');
-    const awaitApi =  document.querySelector(".loading");
+    const awaitApi = document.querySelector(".loading");
 
     const elemOption = () => document.createElement('option');
 
@@ -33,10 +33,8 @@
 
     //send state
     btnSend.addEventListener('click', (e) => {
-        awaitApi.style.display = 'flex';
-        APIresponse = searchState(userState.value.toUpperCase()).catch(err =>{alert('Ops ocorreu um erro porfavor recarregue a página')});
-        const APIValidatorState = APIresponse.then(con => { getInvalidStates(con) });
-        awaitApi.style.display = 'none';
+        APIresponse = apiStateCity(userState.value.toUpperCase()).catch(err => { alert('Ops ocorreu um erro porfavor recarregue a página') });
+        APIresponse.then(con => { getInvalidStates(con) });
     })
 
     //unlock send button city
@@ -52,22 +50,32 @@
 
     //send city
     btnSendCity.addEventListener('click', () => {
-        awaitApi.style.display = 'flex';
-        const APIValidatorCity = APIresponse.then(con2 => { getInvalidCities(con2) });
-        awaitApi.style.display = 'none';
+        APIValidatorCity = APIresponse.then(con2 => { getInvalidCities(con2) });
     })
 
     //conects with API 'clima tempo'
-    async function searchState(stateUser) {
+    async function apiStateCity(stateUser) {
         const TOKEN = '383e3b0dfd73c9eab3e5b2fa9bd85150';
         const URL = `http://apiadvisor.climatempo.com.br/api/v1/locale/city?state=${stateUser}&token=${TOKEN}`;
 
         const methods = { method: 'GET' };
-
         const request = await fetch(URL, methods);
 
         return request.json();
     };
+
+
+    async function apiRegister(cityId) {
+        const TOKEN = '383e3b0dfd73c9eab3e5b2fa9bd85150';
+        const URL = `http://apiadvisor.climatempo.com.br/api-manager/user-token/${TOKEN}/locales`;
+
+        const headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded', payload: `localeId[]${cityId.id}` });
+
+        const methods = { 'method': 'PUT', headers: headers, mode: 'cors', };
+        const request = await fetch(URL, methods).then(response => {
+            console.log(response)
+        })
+    }
 
 
     function getInvalidStates(dataState) {
@@ -83,10 +91,10 @@
     }
 
     function getInvalidCities(dataCity) {
-        const dataFilter = dataCity.find((elem) => {
+        const data = dataCity.find((elem) => {
             return userCity.value === elem.name;
         })
-        console.log(dataFilter)
+        apiRegister(data);
     }
 
     //const URLCONFIRM = 'http://apiadvisor.climatempo.com.br/api-manager/user-token/:your-app-token/locales';

@@ -177,35 +177,3 @@ a::selection {
 .hidden{
     display: none;
 }
-
-.loading{
-    position: absolute;
-    width: 100%;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.603);
-    justify-content: center;
-    text-transform: uppercase;
-    color: rgb(12, 201, 12);
-    font-size: 3rem;
-    animation: loadingFrame 5s infinite alternate-reverse;
-    font-weight: bold;
-    display:none;
-}
-
-@keyframes loadingFrame{
-    0%{
-        color: bisque;
-    }
-
-    33%{
-        color: aquamarine;
-    }
-
-    66%{
-        color: rgb(73, 73, 240);
-    }
-
-    100%{
-       color: green;
-    }
-}
